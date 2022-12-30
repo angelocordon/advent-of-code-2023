@@ -5,7 +5,8 @@
   "description": "Code work for Advent of Code 2022's challenges",
   "license": "ISC",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsn": "ts-node"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",
