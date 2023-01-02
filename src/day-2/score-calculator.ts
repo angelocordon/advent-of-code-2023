@@ -16,7 +16,7 @@ import { parseInput } from '../utils/parse-input';
   if (a < b) { win }
 */
 
-const parsePlay = (play: string): number => {
+export const parsePlay = (play: string): number => {
   switch (play) {
     case 'A':
     case 'X':
@@ -32,7 +32,7 @@ const parsePlay = (play: string): number => {
   }
 };
 
-const calculateRoundScore = (play: string[]): number => {
+export const calculateRoundScore = (play: string[]): number => {
   // `b` being second column of input
   const [a, b] = play.map((p) => parsePlay(p));
 
@@ -48,12 +48,16 @@ const calculateRoundScore = (play: string[]): number => {
 };
 
 // returns [ [C, Z], [A, Y], ... ]
-const parseData = (input: string) => {
-  return parseInput(input).map((item) => item.split(' '));
+export const parseData = (input: string) => {
+  return parseInput(input).map((item) => {
+    return item.trim().split(' ');
+  });
 };
 
-export const calculateTotalScore = (input: string): number => {
+const calculateTotalScore = (input: string): number => {
   return parseData(input).reduce((totalScore, inputData) => {
     return totalScore + calculateRoundScore(inputData);
   }, 0);
 };
+
+export default calculateTotalScore;
